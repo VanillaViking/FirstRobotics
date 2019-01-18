@@ -61,11 +61,11 @@ void Robot::AutonomousPeriodic() {
 void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic() {
-  m_robotDrive.ArcadeDrive(stick.getY(), stick.getX());
+  m_robotDrive.ArcadeDrive(stick.GetY(), stick.GetX());
 }
 
 void Robot::TestPeriodic() {
-  m_robotDrive.ArcadeDrive(stick.getY(), stick.getX());
+  m_robotDrive.ArcadeDrive(stick.GetY(), stick.GetX());
 }
 
 #ifndef RUNNING_FRC_TESTS
