@@ -62,11 +62,27 @@ void Robot::AutonomousPeriodic() {
 void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic() {
-  m_robotDrive.TankDrive(left_stick.GetRawAxis(1), left_stick.GetRawAxis(5), true); // Ports 1 for left-y and 5 for right-y
+   bool triggerPressed = left_stick.GetRawButtonPressed(6);
+   bool triggerReleased = left_stick.GetRawButtonReleased(6);
+   float multiplier = -1.0f;
+   if (triggerPressed) {
+      multiplier = -0.5f;
+   } else if (triggerReleased) {
+      multiplier = -1.0f;
+   }
+  m_robotDrive.TankDrive(multiplier * left_stick.GetRawAxis(1), multiplier * left_stick.GetRawAxis(5), true);
 }
 
 void Robot::TestPeriodic() {
-  m_robotDrive.TankDrive(left_stick.GetRawAxis(1), left_stick.GetRawAxis(5), true);
+   bool triggerPressed = left_stick.GetRawButtonPressed(6);
+   bool triggerReleased = left_stick.GetRawButtonReleased(6);
+   float multiplier = -1.0f;
+   if (triggerPressed) {
+      multiplier = -0.5f;
+   } else if (triggerReleased) {
+      multiplier = -1.0f;
+   }
+  m_robotDrive.TankDrive(multiplier * left_stick.GetRawAxis(1), multiplier * left_stick.GetRawAxis(5), true);
 }
 
 #ifndef RUNNING_FRC_TESTS
