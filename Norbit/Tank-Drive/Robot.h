@@ -35,7 +35,7 @@ class Robot : public frc::IterativeRobot {
 
   frc::DifferentialDrive m_robotDrive{m_left, m_right};
   frc::Joystick left_stick{0};
-  frc::Joystick right_stick{1};
+  frc::Joystick right_stick{5};
 
  private:
   frc::SendableChooser<std::string> m_chooser;
