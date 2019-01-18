@@ -62,11 +62,11 @@ void Robot::AutonomousPeriodic() {
 void Robot::TeleopInit() {}
 
 void Robot::TeleopPeriodic() {
-  m_robotDrive.TankDrive(left_stick.GetY(), right_stick.GetY(), true);
+  m_robotDrive.TankDrive(left_stick.GetRawAxis(1), left_stick.GetRawAxis(5), true); // Ports 1 for left-y and 5 for right-y
 }
 
 void Robot::TestPeriodic() {
-  m_robotDrive.TankDrive(left_stick.GetY(), right_stick.GetY(), true);
+  m_robotDrive.TankDrive(left_stick.GetRawAxis(1), left_stick.GetRawAxis(5), true);
 }
 
 #ifndef RUNNING_FRC_TESTS
