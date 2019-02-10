@@ -19,6 +19,9 @@ void driveSubsystem::Drive(double leftStick, double rightStick, bool sqInputs) {
   m_robotDrive.TankDrive(leftStick, rightStick, sqInputs);
 }
 
+void driveSubsystem::ArcadeDrive(double x, double zRot, bool sqInputs) {
+  m_robotDrive.ArcadeDrive(x, zRot, sqInputs);
+}
 void driveSubsystem::Stop() {
   m_robotDrive.StopMotor();
 }

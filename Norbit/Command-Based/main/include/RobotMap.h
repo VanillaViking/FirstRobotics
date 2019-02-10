@@ -19,6 +19,7 @@
 // constexpr int kLeftMotor = 1;
 // constexpr int kRightMotor = 2;
 constexpr int MAIN_JOYSTICK_PORT = 0;
+constexpr int LOGI_JOYSTICK_PORT = 1;
 
 constexpr int L_TOP_MOTOR = 0;
 constexpr int L_REAR_MOTOR = 1;

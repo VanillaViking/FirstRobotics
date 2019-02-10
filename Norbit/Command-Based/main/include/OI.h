@@ -12,5 +12,6 @@ class OI {
   public:
     OI();
     frc::Joystick *mainStick; 
+    frc::Joystick *logiStick;
   private:
 };

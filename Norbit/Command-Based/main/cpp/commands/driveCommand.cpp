@@ -20,7 +20,20 @@ void driveCommand::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void driveCommand::Execute() {
-  driveSystem->Drive(this->getLeftStick(), this->getRightStick(), true);
+double multiplier = -1.0f;
+  double speed = oi->logiStick->GetRawAxis(3);
+
+  // Tank driving.
+  if (oi->mainStick->GetRawButton(6)) {
+    multiplier = -0.5f;
+  } else if (oi->mainStick->GetRawButton(5)){
+    multiplier = -0.75f;
+  } else {
+    multiplier = -1.0f;
+  }
+  speed = speed * (-0.5f) + (0.5f);
+  driveSystem->Drive(multiplier * this->getLeftStick(), multiplier * this->getRightStick(), true);
+  driveSystem->ArcadeDrive(-1 * speed * oi->logiStick->GetY(), speed * oi->logiStick->GetZ(), true);
 }
 
 // Make this return true when this Command no longer needs to run execute()

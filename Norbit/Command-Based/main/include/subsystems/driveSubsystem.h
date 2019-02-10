@@ -30,6 +30,7 @@ class driveSubsystem : public frc::Subsystem {
  public:
   driveSubsystem();
   void Drive(double leftStick, double rightStick, bool sqInputs);
+  void ArcadeDrive(double x, double zRot, bool sqInputs);
   void InitDefaultCommand() override;
   void Stop();
 };
