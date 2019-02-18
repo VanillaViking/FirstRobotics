@@ -11,6 +11,7 @@
 #include <frc/smartdashboard/SmartDashboard.h>
 #include "commands/driveCommand.h"
 #include "frc/smartdashboard/SmartDashboard.h"
+#include <CameraServer.h>
 ExampleSubsystem Robot::m_subsystem;
 //driveSubsystem Robot::m_drive;
 //OI Robot::m_oi;
@@ -21,6 +22,7 @@ void Robot::RobotInit() {
   teleopchooser->SetDefaultOption("Tank Driving", new driveCommand());
   limitSwitch = new frc::DigitalInput(1);
   frc::SmartDashboard::PutData("Teleop Modes", teleopchooser);
+  frc::CameraServer::GetInstance()->StartAutomaticCapture();
 }
 
 /**
