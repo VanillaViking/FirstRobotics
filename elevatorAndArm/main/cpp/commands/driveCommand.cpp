@@ -16,6 +16,7 @@ driveCommand::driveCommand() {
 
 // Called just before this Command runs the first time
 void driveCommand::Initialize() {
+  prefs = frc::Preferences::GetInstance();
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -48,8 +49,10 @@ void driveCommand::Execute() {
 // Down button 7
 // Open Button 1
 // Close Button 2
-float armSpeed = 0.04f;
-float elevatorSpeed = 0.1f;
+  float armSpeed = 0.04f;
+  float elevatorSpeed = 0.1f;
+  armSpeed = prefs->GetDouble("armSpeed", 0.04f);
+  elevatorSpeed =prefs->GetDouble("elevatorSpeed", 0.1f);
   if (limitSwitch.Get()) {
     if (oi->logiStick->GetRawButton(1) || oi->mainStick->GetRawButton(1)) {
       driveSystem->moveArms(armSpeed);
