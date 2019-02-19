@@ -20,5 +20,6 @@ class driveCommand : public CommandBase {
   double getRightStick();
   double getLeftStick();
   frc::DigitalInput limitSwitch{0};
+  frc::Preferences *prefs;
   //limitSwitch= new frc::DigitalInput(0);
 };
