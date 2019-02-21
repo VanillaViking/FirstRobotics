@@ -49,8 +49,17 @@ void driveCommand::Execute() {
 // Down button 7
 // Open Button 1
 // Close Button 2
-  float armSpeed = 0.04f;
-  float elevatorSpeed = 0.1f;
+  float armSpeed;
+  float elevatorSpeed;
+  if(oi->logiStick->GetRawButton(9)||oi->mainStick->GetRawButton(5)){
+    armSpeed = 0.01f;
+  }else if (oi->logiStick->GetRawButton(10)||oi->mainStick->GetRawButton(6)){
+    armSpeed = 0.02f;
+  }else if (oi->logiStick->GetRawButton(11)||oi->mainStick->GetRawButton(7)){
+    armSpeed = 0.03f;
+  }else if (oi->logiStick->GetRawButton(12)||oi->mainStick->GetRawButton(8)){
+    armSpeed = 0.04f;
+  }
   armSpeed = prefs->GetDouble("armSpeed", 0.04f);
   elevatorSpeed =prefs->GetDouble("elevatorSpeed", 0.1f);
   if (limitSwitch.Get()) {
@@ -69,6 +78,18 @@ void driveCommand::Execute() {
       driveSystem->stopArms();
     }
   }
+
+  if(oi->mainStick->GetRawButton(9)){
+   elevatorSpeed = 0.1f;
+  }
+  else if (oi->mainStick->GetRawButton(10)||oi->mainStick->GetRawButton(9)){
+    elevatorSpeed = 0.2f;
+  }   else if (oi->mainStick->GetRawButton(11)||oi->mainStick->GetRawButton(10)){
+    elevatorSpeed = 0.3f;
+  }  else if (oi->mainStick->GetRawButton(12)||oi->mainStick->GetRawButton(11)){
+    elevatorSpeed = 0.4f;
+  }
+
 
   if (oi->logiStick->GetRawButton(8) || oi->mainStick->GetRawButton(3)) {
     driveSystem->moveElevator(elevatorSpeed);
@@ -107,3 +128,4 @@ double driveCommand::getRightStick() {
 double driveCommand::getLeftStick() {
   return oi->mainStick->GetX();
 }
+
