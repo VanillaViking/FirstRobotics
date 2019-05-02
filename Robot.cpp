@@ -1,3 +1,9 @@
+//this is in iterativeRobot code
+
+
+
+
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -58,8 +64,8 @@ class Robot : public frc::TimedRobot {
   // DoubleSolenoid corresponds to a double solenoid.
   frc::DoubleSolenoid m_doubleSolenoid{0, 1};
 
-  static constexpr int kDoubleSolenoidForward = 2;
-  static constexpr int kDoubleSolenoidReverse = 3;
+  static constexpr int kDoubleSolenoidForward = 11;
+  static constexpr int kDoubleSolenoidReverse = 12;
 };
 
 #ifndef RUNNING_FRC_TESTS
