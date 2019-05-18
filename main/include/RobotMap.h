@@ -18,17 +18,11 @@
 // following variables to use with your drivetrain subsystem.
 // constexpr int kLeftMotor = 1;
 // constexpr int kRightMotor = 2;
-constexpr int MAIN_JOYSTICK_PORT = 0;
 constexpr int LOGI_JOYSTICK_PORT = 1;
 
-constexpr int L_TOP_MOTOR = 0;
-constexpr int L_REAR_MOTOR = 1;
+constexpr int DOUBLESOLENOID_PORT_1 = 0;
+constexpr int DOUBLESOLENOID_PORT_2 = 1;
 
-constexpr int ARM_PORT = 8;
-constexpr int ELEVATOR_PORT = 9;
-
-constexpr int R_TOP_MOTOR = 2;
-constexpr int R_REAR_MOTOR = 3;
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:
 // constexpr int kRangeFinderPort = 1;

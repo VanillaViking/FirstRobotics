@@ -9,9 +9,7 @@
 #include "RobotMap.h"
 #include <frc/Joystick.h>
 class OI {
-  public:
-    OI();
-    frc::Joystick *mainStick; 
-    frc::Joystick *logiStick;
-  private:
+ public:
+  OI();
+  frc::Joystick *logiStick;
 };

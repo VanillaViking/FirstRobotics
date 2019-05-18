@@ -15,12 +15,10 @@
 #include "commands/ExampleCommand.h"
 #include "commands/MyAutoCommand.h"
 #include "subsystems/ExampleSubsystem.h"
-#include "commands/driveCommand.h"
 
 class Robot : public frc::TimedRobot {
  public:
   static ExampleSubsystem m_subsystem;
-  //static driveSubsystem m_drive;
   //static OI m_oi;
 
   void RobotInit() override;
@@ -32,7 +30,7 @@ class Robot : public frc::TimedRobot {
   void TeleopInit() override;
   void TeleopPeriodic() override;
   void TestPeriodic() override;
-  void TestInit() override;
+
  private:
   // Have it null by default so that if testing teleop it
   // doesn't have undefined behavior and potentially crash.
@@ -40,6 +38,4 @@ class Robot : public frc::TimedRobot {
   ExampleCommand m_defaultAuto;
   MyAutoCommand m_myAuto;
   frc::SendableChooser<frc::Command*> m_chooser;
-  frc::SendableChooser<frc::Command*> *teleopchooser;
-  frc::Command *teleopCommand = nullptr;
 };

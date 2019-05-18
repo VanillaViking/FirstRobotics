@@ -11,9 +11,5 @@
 
 OI::OI() {
   // Process operator interface input here.
-  mainStick = new frc::Joystick(MAIN_JOYSTICK_PORT);
   logiStick = new frc::Joystick(LOGI_JOYSTICK_PORT);
-  mainStick->SetXChannel(1);
-  mainStick->SetYChannel(5);
-
 }

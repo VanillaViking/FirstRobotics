@@ -3,7 +3,7 @@
 #include "OI.h"
 #include "frc/commands/Command.h"
 #include <frc/WPILib.h>
-#include "subsystems/driveSubsystem.h"
+#include "subsystems/pneumaticsSubsystem.h"
 
 
 class CommandBase : public frc::Command {
@@ -12,7 +12,8 @@ class CommandBase : public frc::Command {
         CommandBase(char const *name);
         CommandBase();
         static OI *oi;
-        static driveSubsystem *driveSystem;
+        static pneumaticsSubsystem *pneumatics;
+        
         
 };
 

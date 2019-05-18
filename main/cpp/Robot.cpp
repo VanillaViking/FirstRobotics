@@ -6,23 +6,17 @@
 /*----------------------------------------------------------------------------*/
 
 #include "Robot.h"
-#include <frc/WPILib.h>
+
 #include <frc/commands/Scheduler.h>
 #include <frc/smartdashboard/SmartDashboard.h>
-#include "commands/driveCommand.h"
-#include "frc/smartdashboard/SmartDashboard.h"
-#include <CameraServer.h>
+
 ExampleSubsystem Robot::m_subsystem;
-//driveSubsystem Robot::m_drive;
-//OI Robot::m_oi;
-frc::DigitalInput* limitSwitch;
+
+
 void Robot::RobotInit() {
-  CommandBase::init();
-  teleopchooser = new frc::SendableChooser<frc::Command*>;
-  teleopchooser->SetDefaultOption("Tank Driving", new driveCommand());
-  limitSwitch = new frc::DigitalInput(1);
-  frc::SmartDashboard::PutData("Teleop Modes", teleopchooser);
-  frc::CameraServer::GetInstance()->StartAutomaticCapture();
+  m_chooser.SetDefaultOption("Default Auto", &m_defaultAuto);
+  m_chooser.AddOption("My Auto", &m_myAuto);
+  frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
 }
 
 /**
@@ -33,8 +27,7 @@ void Robot::RobotInit() {
  * <p> This runs after the mode specific periodic functions, but before
  * LiveWindow and SmartDashboard integrated updating.
  */
-void Robot::RobotPeriodic() {
-}
+void Robot::RobotPeriodic() {}
 
 /**
  * This function is called once each time the robot enters Disabled mode. You
@@ -57,7 +50,6 @@ void Robot::DisabledPeriodic() { frc::Scheduler::GetInstance()->Run(); }
  * the if-else structure below with additional strings & commands.
  */
 void Robot::AutonomousInit() {
-  /*
   // std::string autoSelected = frc::SmartDashboard::GetString(
   //     "Auto Selector", "Default");
   // if (autoSelected == "My Auto") {
@@ -71,7 +63,6 @@ void Robot::AutonomousInit() {
   if (m_autonomousCommand != nullptr) {
     m_autonomousCommand->Start();
   }
-  */
 }
 
 void Robot::AutonomousPeriodic() { frc::Scheduler::GetInstance()->Run(); }
@@ -81,48 +72,15 @@ void Robot::TeleopInit() {
   // teleop starts running. If you want the autonomous to
   // continue until interrupted by another command, remove
   // this line or comment it out.
-  /*
   if (m_autonomousCommand != nullptr) {
     m_autonomousCommand->Cancel();
     m_autonomousCommand = nullptr;
   }
-*/
-  teleopCommand = (frc::Command *) teleopchooser->GetSelected();
-
-  if (teleopCommand != nullptr) {
-    teleopCommand->Start();
-  }
 }
 
-void Robot::TeleopPeriodic() {  
-    frc::Scheduler::GetInstance()->Run(); 
+void Robot::TeleopPeriodic() { frc::Scheduler::GetInstance()->Run(); }
 
-  }
-
-void Robot::TestInit() {
-
-// JUST COPIED THE TELEOPINIT HERE. 
-
-
-    // This makes sure that the autonomous stops running when
-  // teleop starts running. If you want the autonomous to
-  // continue until interrupted by another command, remove
-  // this line or comment it out.
-  if (m_autonomousCommand != nullptr) {
-    m_autonomousCommand->Cancel();
-    m_autonomousCommand = nullptr;
-  }
-
-  teleopCommand = (frc::Command *) teleopchooser->GetSelected();
-
-  if (teleopCommand != nullptr) {
-    teleopCommand->Start();
-  }
-}
-
-void Robot::TestPeriodic() {
-  frc::Scheduler::GetInstance()->Run(); 
-}
+void Robot::TestPeriodic() {}
 
 #ifndef RUNNING_FRC_TESTS
 int main() { return frc::StartRobot<Robot>(); }
