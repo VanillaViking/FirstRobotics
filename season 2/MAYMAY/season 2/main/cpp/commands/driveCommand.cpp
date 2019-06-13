@@ -52,10 +52,14 @@ driveSystem->ArcadeDrive(-1 * speed * oi->logiStick->GetY(),turn_speed * oi->log
 if (oi->logiStick->GetRawButton(8)){
   driveSystem->moveElevator(elevator_speed);
 } 
-if (oi->logiStick->GetRawButton(7)){
+else if (oi->logiStick->GetRawButton(7)){
   driveSystem->moveElevator(elevator_speed*(-1));
 }
-if (oi->logiStick->GetRawButton(10)){
+
+if (oi->logiStick->GetRawButton(9)){
+  elevator_speed = 0.25f;
+}
+else if (oi->logiStick->GetRawButton(10)){
   elevator_speed = 0.5f;
 }
     //driveSystem->
