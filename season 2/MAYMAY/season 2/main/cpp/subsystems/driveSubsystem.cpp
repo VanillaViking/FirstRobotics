@@ -25,5 +25,9 @@ void driveSubsystem::ArcadeDrive(double x, double zRot, bool sqInputs) {
 void driveSubsystem::Stop() {
   m_robotDrive.StopMotor();
 }
+
+void moveElevator(double speed) {
+  elevator_motor.Set_speed(speed);
+}
 // Put methods for controlling this subsystem
 // here. Call these from Commands.

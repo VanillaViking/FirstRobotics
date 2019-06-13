@@ -24,6 +24,7 @@ void driveCommand::Execute() {
   double multiplier = -1.0f;
   double speed = oi->logiStick->GetRawAxis(3);
   float turn_speed = 0.5f;
+  float elevator_speed = 0.25f;
 
   // Tank driving.
   /*
@@ -41,11 +42,22 @@ void driveCommand::Execute() {
 
     // Arcade Drive
 driveSystem->ArcadeDrive(-1 * speed * oi->logiStick->GetY(),turn_speed * oi->logiStick->GetZ(), true);
+
+
+  
 // UP button 8
 // Down button 7
 // Open Button 1
 // Close Button 2
- 
+if (oi->logiStick->GetRawButton(8)){
+  driveSystem->moveElevator(elevator_speed);
+} 
+if (oi->logiStick->GetRawButton(7)){
+  driveSystem->moveElevator(elevator_speed*(-1));
+}
+if (oi->logiStick->GetRawButton(10)){
+  elevator_speed = 0.5f;
+}
     //driveSystem->
   }
   //driveSystem->Drive(multiplier * this->getLeftStick(), multiplier * this->getRightStick(), true);

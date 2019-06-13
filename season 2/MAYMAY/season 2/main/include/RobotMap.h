@@ -26,6 +26,8 @@ constexpr int L_REAR_MOTOR = 1;
 constexpr int R_TOP_MOTOR = 2;
 constexpr int R_REAR_MOTOR = 3;
 
+constexpr int ELEVATOR_PORT = 9;
+
 // If you are using multiple modules, make sure to define both the port
 // number and the module. For example you with a rangefinder:
 // constexpr int kRangeFinderPort = 1;

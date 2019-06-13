@@ -25,9 +25,13 @@ class driveSubsystem : public frc::Subsystem {
   frc::PWMVictorSPX m_rearRight{R_REAR_MOTOR};
   frc::SpeedControllerGroup m_right{m_frontRight, m_rearRight};
 
+  frc::PWMVictorSPX elevator_motor{ELEVATOR_PORT};
+
  public:
   frc::DifferentialDrive m_robotDrive{m_left, m_right};
+
   driveSubsystem();
+  void moveElevator(double speed);
   void Drive(double leftStick, double rightStick, bool sqInputs);
   void ArcadeDrive(double x, double zRot, bool sqInputs);
   void InitDefaultCommand() override;
