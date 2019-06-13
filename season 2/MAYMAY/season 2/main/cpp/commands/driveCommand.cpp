@@ -26,20 +26,6 @@ void driveCommand::Execute() {
   float turn_speed = 0.5f;
   float elevator_speed = 0.25f;
 
-  // Tank driving.
-  /*
-  if (oi->mainStick->GetRawButton(6)) {
-    multiplier = -0.5f;
-  } else if (oi->mainStick->GetRawButton(5)){
-    multiplier = -0.75f;
-  } else {
-    multiplier = -1.0f;
-  }
-  speed = speed * (-0.5f) + (0.5f);
-  */ 
-    //speed = 0;
-    //driveSystem->m_robotDrive.StopMotor();
-
     // Arcade Drive
 driveSystem->ArcadeDrive(-1 * speed * oi->logiStick->GetY(),turn_speed * oi->logiStick->GetZ(), true);
 
@@ -47,8 +33,6 @@ driveSystem->ArcadeDrive(-1 * speed * oi->logiStick->GetY(),turn_speed * oi->log
   
 // UP button 8
 // Down button 7
-// Open Button 1
-// Close Button 2
 if (oi->logiStick->GetRawButton(8)){
   driveSystem->moveElevator(elevator_speed);
 } 
@@ -64,8 +48,7 @@ else if (oi->logiStick->GetRawButton(10)){
 }
     //driveSystem->
   }
-  //driveSystem->Drive(multiplier * this->getLeftStick(), multiplier * this->getRightStick(), true);
-  //driveSystem->ArcadeDrive(limitSwitch.Get() * -1 * speed * oi->logiStick->GetY(), speed * oi->logiStick->GetZ(), true);
+
 
 // Make this return true when this Command no longer needs to run execute()
 // Returns false since it must always run. 
