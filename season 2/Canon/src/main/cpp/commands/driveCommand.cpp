@@ -28,7 +28,7 @@ void driveCommand::Execute() {
     //speed = 0;
     //driveSystem->m_robotDrive.StopMotor();
     // -1
-
+  speed = speed * (-0.5f) + (0.5f);
   driveSystem->ArcadeDrive(speed * oi->logiStick->GetY(),turn_speed * oi->logiStick->GetZ(), true);
 
   turn_speed = prefs->GetDouble("turn_speed", 1.0f);
