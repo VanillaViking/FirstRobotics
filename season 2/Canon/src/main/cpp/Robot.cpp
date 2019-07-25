@@ -12,6 +12,7 @@
 #include "commands/driveCommand.h"
 #include "frc/smartdashboard/SmartDashboard.h"
 #include <CameraServer.h>
+#include <networktables/NetworkTableInstance.h>
 ExampleSubsystem Robot::m_subsystem;
 //driveSubsystem Robot::m_drive;
 //OI Robot::m_oi;
@@ -22,7 +23,9 @@ void Robot::RobotInit() {
   teleopchooser->SetDefaultOption("Tank Driving", new driveCommand());
   //limitSwitch = new frc::DigitalInput(1);
   frc::SmartDashboard::PutData("Teleop Modes", teleopchooser);
-  frc::CameraServer::GetInstance()->StartAutomaticCapture();
+  //frc::CameraServer::GetInstance()->StartAutomaticCapture();
+  camera1 = frc::CameraServer::GetInstance()->StartAutomaticCapture(0);
+  camera2 = frc::CameraServer::GetInstance()->StartAutomaticCapture(1);
 }
 
 /**
@@ -97,7 +100,16 @@ void Robot::TeleopInit() {
 void Robot::TeleopPeriodic() {  
     frc::Scheduler::GetInstance()->Run(); 
 
-  }
+
+ /*  if (oi->logiStick->GetRawButton(8)) {
+    printf("Setting camera 2\n");
+    nt::NetworkTableInstance::GetDefault().GetTable("")->PutString("CameraSelection", camera2.GetName());
+  } else if (!oi->logiStick->GetRawButton(8)) {
+    printf("Setting camera 1\n");
+    nt::NetworkTableInstance::GetDefault().GetTable("")->PutString("CameraSelection", camera1.GetName());
+  } */
+} 
+
 
 void Robot::TestInit() {
 

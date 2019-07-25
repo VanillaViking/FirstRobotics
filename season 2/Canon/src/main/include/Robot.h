@@ -16,6 +16,7 @@
 #include "commands/MyAutoCommand.h"
 #include "subsystems/ExampleSubsystem.h"
 #include "commands/driveCommand.h"
+#include "CommandBase.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -42,4 +43,7 @@ class Robot : public frc::TimedRobot {
   frc::SendableChooser<frc::Command*> m_chooser;
   frc::SendableChooser<frc::Command*> *teleopchooser;
   frc::Command *teleopCommand = nullptr;
+  cs::UsbCamera camera1;
+  cs::UsbCamera camera2;
+
 };

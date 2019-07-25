@@ -7,13 +7,13 @@
 
 #include "commands/driveCommand.h"
 #include "Robot.h"
+#include <networktables/NetworkTableInstance.h>
 driveCommand::driveCommand() {
   // Use Requires() here to declare subsystem dependencies
   // eg. Requires(Robot::chassis.get());
   
   Requires(driveSystem);
 }
-
 // Called just before this Command runs the first time
 void driveCommand::Initialize() {
   prefs = frc::Preferences::GetInstance();
@@ -100,6 +100,7 @@ void driveCommand::Execute() {
   // }
   //driveSystem->Drive(multiplier * this->getLeftStick(), multiplier * this->getRightStick(), true);
   //driveSystem->ArcadeDrive(limitSwitch.Get() * -1 * speed * oi->logiStick->GetY(), speed * oi->logiStick->GetZ(), true);
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
