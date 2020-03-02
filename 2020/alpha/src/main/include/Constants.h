@@ -16,3 +16,17 @@
  * command-specific namespaces within this header, which can then be used where
  * they are needed.
  */
+
+constexpr int LOGI_JOYSTICK_PORT = 0;
+
+constexpr int L_TOP_MOTOR = 0;
+constexpr int L_REAR_MOTOR = 1;
+
+constexpr int R_TOP_MOTOR = 2;
+constexpr int R_REAR_MOTOR = 3;
+
+
+namespace ElevatorConstants {
+    constexpr int ELEVATOR_PORT = 9;
+
+}
