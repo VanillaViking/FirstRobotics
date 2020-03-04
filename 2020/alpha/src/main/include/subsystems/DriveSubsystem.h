@@ -12,7 +12,6 @@ class DriveSubsystem : public frc2::SubsystemBase {
  public:
   DriveSubsystem();
 
-  frc::DifferentialDrive m_robotDrive{m_left, m_right};
 
   void Drive(double x, double zRot, bool sqInputs);
   void Stop();
@@ -29,4 +28,5 @@ class DriveSubsystem : public frc2::SubsystemBase {
     frc::PWMVictorSPX m_rearRight{R_REAR_MOTOR};
     frc::SpeedControllerGroup m_right{m_frontRight, m_rearRight};
 
+    frc::DifferentialDrive m_robotDrive{m_left, m_right};
 };

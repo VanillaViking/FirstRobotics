@@ -9,6 +9,7 @@
 
 RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   // Initialize all of your commands and subsystems here
+    m_drive.SetDefaultCommand(DriveCommand(&m_drive, [this] {return logiStick.GetX();}, [this] {return logiStick.GetZ();}, true ));
 
   // Configure the button bindings
   ConfigureButtonBindings();
