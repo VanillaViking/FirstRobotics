@@ -32,6 +32,7 @@ class DriveCommand
 
  private:
   DriveSubsystem* m_subsystem;
-  std::function<double()> m_x, m_zRot;
+  std::function<double()> m_x;
+  std::function<double()> m_zRot;
   bool m_sqInputs;
 };

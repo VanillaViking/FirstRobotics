@@ -9,7 +9,7 @@
 
 DriveCommand::DriveCommand(DriveSubsystem* subsystem, std::function<double()> x, std::function<double()> zRot, bool sqInputs)
     : m_subsystem{subsystem}, m_x(x), m_zRot(zRot), m_sqInputs(sqInputs)  {
-    AddRequirements(m_subsystem); 
+    AddRequirements(subsystem); 
     }
 
 void DriveCommand::Execute() {
