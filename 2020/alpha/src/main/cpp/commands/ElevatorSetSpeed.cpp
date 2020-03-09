@@ -5,13 +5,15 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/DriveCommand.h"
+#include "commands/ElevatorSetSpeed.h"
 
-DriveCommand::DriveCommand(DriveSubsystem* subsystem, std::function<double()> x, std::function<double()> zRot, bool sqInputs)
-    : m_subsystem{subsystem}, m_x(x), m_zRot(zRot), m_sqInputs(sqInputs)  {
-    AddRequirements({subsystem}); 
+ElevatorSetSpeed::ElevatorSetSpeed(ElevatorSubsystem* subsystem, std::function<double()> speed)
+    : m_subsystem{subsystem}, m_speed(speed) {
+    AddRequirements({subsystem});
     }
 
-void DriveCommand::Execute() {
-    m_subsystem->Drive(m_x(), m_zRot(), m_sqInputs);
-}
+
+void ElevatorSetSpeed::Execute() {m_subsystem->SetSpeed((m_speed() *-0.5) + 0.5);}
+
+bool ElevatorSetSpeed::IsFinished() {return false;}
+

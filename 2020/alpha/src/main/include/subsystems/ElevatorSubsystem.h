@@ -9,7 +9,6 @@
 
 #include <frc2/command/SubsystemBase.h>
 #include <frc/PWMVictorSPX.h>
-#include "Constants.h"
 
 class ElevatorSubsystem : public frc2::SubsystemBase {
  public:
@@ -21,10 +20,12 @@ class ElevatorSubsystem : public frc2::SubsystemBase {
   void Periodic() override;
 
   void SetSpeed(double speed);
+
+  void StopMotor();
  
 
  private:
-    frc::PWMVictorSPX m_elevator{ELEVATOR_PORT};
+    frc::PWMVictorSPX m_elevator;
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

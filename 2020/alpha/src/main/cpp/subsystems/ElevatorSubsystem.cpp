@@ -6,13 +6,20 @@
 /*----------------------------------------------------------------------------*/
 
 #include "subsystems/ElevatorSubsystem.h"
+#include "Constants.h"
 
-ElevatorSubsystem::ElevatorSubsystem() {
+using namespace ElevatorConstants;
+
+ElevatorSubsystem::ElevatorSubsystem() : m_elevator{ELEVATOR_PORT}{
   // Implementation of subsystem constructor goes here.
 }
 
 void ElevatorSubsystem::SetSpeed(double speed) {
     m_elevator.SetSpeed(speed);
+}
+
+void ElevatorSubsystem::StopMotor() {
+    m_elevator.StopMotor();
 }
 
 void ElevatorSubsystem::Periodic() {
