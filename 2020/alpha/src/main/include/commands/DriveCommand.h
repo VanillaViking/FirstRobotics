@@ -27,12 +27,14 @@ class DriveCommand
    *
    * @param subsystem The subsystem used by this command.
    */
-  explicit DriveCommand(DriveSubsystem* subsystem, std::function<double()> x, std::function<double()> zRot,bool sqInputs);
+  explicit DriveCommand(DriveSubsystem* subsystem, std::function<double()> x, std::function<double()> zRot, std::function<double()> speed ,bool sqInputs);
   void Execute() override;
 
  private:
   DriveSubsystem* m_subsystem;
   std::function<double()> m_x;
   std::function<double()> m_zRot;
+  std::function<double()> m_speed;
+
   bool m_sqInputs;
 };

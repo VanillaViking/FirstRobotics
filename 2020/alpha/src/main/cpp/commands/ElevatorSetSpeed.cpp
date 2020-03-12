@@ -7,13 +7,13 @@
 
 #include "commands/ElevatorSetSpeed.h"
 
-ElevatorSetSpeed::ElevatorSetSpeed(ElevatorSubsystem* subsystem, std::function<double()> speed)
+ElevatorSetSpeed::ElevatorSetSpeed(ElevatorSubsystem* subsystem, double speed)
     : m_subsystem{subsystem}, m_speed(speed) {
     AddRequirements({subsystem});
     }
 
 
-void ElevatorSetSpeed::Execute() {m_subsystem->SetSpeed((m_speed() *-0.5) + 0.5);}
+void ElevatorSetSpeed::Execute() {m_subsystem->SetSpeed(m_speed);}
 
 bool ElevatorSetSpeed::IsFinished() {return false;}
 

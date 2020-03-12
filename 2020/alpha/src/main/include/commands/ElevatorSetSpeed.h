@@ -27,12 +27,12 @@ class ElevatorSetSpeed
    *
    * @param subsystem The subsystem used by this command.
    */
-  explicit ElevatorSetSpeed(ElevatorSubsystem* subsystem, std::function <double()> speed);
+  explicit ElevatorSetSpeed(ElevatorSubsystem* subsystem, double speed);
 
   void Execute() override;
   bool IsFinished() override;
 
  private:
   ElevatorSubsystem* m_subsystem;
-  std::function <double()> m_speed;
+  double m_speed;
 };
