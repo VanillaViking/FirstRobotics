@@ -10,7 +10,7 @@
 #include <frc2/command/button/JoystickButton.h>
 #include "commands/DriveCommand.h"
 #include "commands/ElevatorSetSpeed.h"
-#include "commands/IntakeCommand.cpp"
+#include "commands/IntakeCommand.h"
 
 
 RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
