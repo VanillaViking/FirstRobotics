@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2019 FIRST. All Rights Reserved.                             */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* copyright (c) 2019 first. all rights reserved.                             */
+/* open source software - may be modified and shared by frc teams. the code   */
+/* must be accompanied by the first bsd license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
@@ -11,7 +11,7 @@
 using namespace ElevatorConstants;
 
 ElevatorSubsystem::ElevatorSubsystem() : m_elevator{ELEVATOR_PORT}{
-  // Implementation of subsystem constructor goes here.
+  // implementation of subsystem constructor goes here.
 }
 
 void ElevatorSubsystem::SetSpeed(double speed) {
@@ -23,5 +23,5 @@ void ElevatorSubsystem::StopMotor() {
 }
 
 void ElevatorSubsystem::Periodic() {
-  // Implementation of subsystem periodic method goes here.
+  // implementation of subsystem periodic method goes here.
 }

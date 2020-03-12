@@ -27,6 +27,8 @@ constexpr int R_REAR_MOTOR = 3;
 
 
 namespace ElevatorConstants {
-    constexpr int ELEVATOR_PORT = 9;
+    constexpr int ELEVATOR_PORT = 8;
+    constexpr int MOTOR9_PORT = 9;
+    constexpr int MOTOR6_PORT = 6;
 
 }

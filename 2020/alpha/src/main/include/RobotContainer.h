@@ -13,6 +13,7 @@
 #include "subsystems/ExampleSubsystem.h"
 #include "subsystems/DriveSubsystem.h"
 #include "subsystems/ElevatorSubsystem.h"
+#include "subsystems/Motor6Subsystem.h"
 #include "frc/Joystick.h"
 #include "Constants.h"
 
@@ -36,6 +37,7 @@ class RobotContainer {
 
   DriveSubsystem m_drive;
   ElevatorSubsystem m_elevatorsystem;
+  Motor6Subsystem m_intakesystem;
 
   frc::Joystick logiStick{LOGI_JOYSTICK_PORT};
 
