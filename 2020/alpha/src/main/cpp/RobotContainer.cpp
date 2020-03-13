@@ -10,11 +10,14 @@
 #include <frc2/command/button/JoystickButton.h>
 #include "commands/DriveCommand.h"
 #include "commands/IntakeCommand.h"
+#include "commands/RollerDefault.h"
 
 
 RobotContainer::RobotContainer() {
   // Initialize all of your commands and subsystems here
     m_drive.SetDefaultCommand(DriveCommand(&m_drive, [this] {return logiStick.GetY();}, [this] {return logiStick.GetZ();}, [this] {return logiStick.GetRawAxis(3);}, true ));
+    
+    m_rollersystem.SetDefaultCommand(RollerDefault(&m_rollersystem, [this] {return logiStick.GetPOV();}));
 
   // Configure the button bindings
   ConfigureButtonBindings();
@@ -22,9 +25,14 @@ RobotContainer::RobotContainer() {
 
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
- 
+    
+    //Intake Mapping 
     frc2::JoystickButton(&logiStick, 1).WhileHeld(new IntakeCommand(&m_intakesystem, [this] {return logiStick.GetRawButtonPressed(2);}));
-  
+    
+    //Roller speeds 
+    //frc2::POVButton(&logiStick, 90, 0).WhenPressed(&RollerInc);
+    //frc2::POVButton(&logiStick, 270, 0).WhenPressed(&RollerDec);
+
 
 }
 

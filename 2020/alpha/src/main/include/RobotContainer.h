@@ -8,9 +8,11 @@
 #pragma once
 
 #include <frc2/command/Command.h>
+#include <frc2/command/InstantCommand.h>
 
 #include "subsystems/DriveSubsystem.h"
 #include "subsystems/Motor6Subsystem.h"
+#include "subsystems/RollerSubsystem.h"
 #include "frc/Joystick.h"
 #include "Constants.h"
 
@@ -32,8 +34,13 @@ class RobotContainer {
 
   DriveSubsystem m_drive;
   Motor6Subsystem m_intakesystem;
+  RollerSubsystem m_rollersystem;
 
   frc::Joystick logiStick{LOGI_JOYSTICK_PORT};
+
+  //commands to increase/decrease roller speeds
+  //frc2::InstantCommand RollerInc{[this] {m_rollersystem.IncSpeed();}, {}};
+  //frc2::InstantCommand RollerDec{[this] {m_rollersystem.DecSpeed();}, {}};
 
   void ConfigureButtonBindings();
 };

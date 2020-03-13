@@ -20,7 +20,7 @@ void RollerSubsystem::DecSpeed() {
 
 void RollerSubsystem::SetSpeed() {
     m_motor1.SetSpeed(m_speed);
-    m_motor2.SetSpeed(m_speed);
+    m_motor2.SetSpeed((-1) * m_speed);
 }
 
 void RollerSubsystem::StopMotors() {

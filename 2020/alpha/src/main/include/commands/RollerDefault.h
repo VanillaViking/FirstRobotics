@@ -8,10 +8,11 @@
 
 class RollerDefault : public frc2::CommandHelper<frc2::CommandBase, RollerDefault> {
     public:
-        explicit RollerDefault(RollerSubsystem* subsystem);
+        explicit RollerDefault(RollerSubsystem* subsystem, std::function<int()> pov);
         void Execute() override;
 
     private:
         RollerSubsystem* m_subsystem;
+        std::function<int()> m_pov;
 
 };
