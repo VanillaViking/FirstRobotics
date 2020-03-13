@@ -22,5 +22,8 @@ void IntakeCommand::Execute() {
     }
 }
 
-bool IntakeCommand::IsFinished() {return false;}
+bool IntakeCommand::IsFinished() {
+    m_subsystem->StopMotor();
+    return false;
+}
 

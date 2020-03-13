@@ -9,10 +9,7 @@
 
 #include <frc2/command/Command.h>
 
-#include "commands/ExampleCommand.h"
-#include "subsystems/ExampleSubsystem.h"
 #include "subsystems/DriveSubsystem.h"
-#include "subsystems/ElevatorSubsystem.h"
 #include "subsystems/Motor6Subsystem.h"
 #include "frc/Joystick.h"
 #include "Constants.h"
@@ -32,11 +29,8 @@ class RobotContainer {
 
  private:
   // The robot's subsystems and commands are defined here...
-  ExampleSubsystem m_subsystem;
-  ExampleCommand m_autonomousCommand;
 
   DriveSubsystem m_drive;
-  ElevatorSubsystem m_elevatorsystem;
   Motor6Subsystem m_intakesystem;
 
   frc::Joystick logiStick{LOGI_JOYSTICK_PORT};
