@@ -10,7 +10,7 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
-#include "subsystems/DriveSubsystem.h"
+#include "subsystems/Motor6Subsystem.h"
 
 /**
  * An example command that uses an example subsystem.
@@ -19,22 +19,20 @@
  * directly; this is crucially important, or else the decorator functions in
  * Command will *not* work!
  */
-class DriveCommand
-    : public frc2::CommandHelper<frc2::CommandBase, DriveCommand> {
+class IntakeCommand
+    : public frc2::CommandHelper<frc2::CommandBase, IntakeCommand> {
  public:
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  explicit DriveCommand(DriveSubsystem* subsystem, std::function<double()> x, std::function<double()> zRot, std::function<double()> speed ,bool sqInputs);
+  explicit IntakeCommand(Motor6Subsystem* subsystem, std::function<bool()> full_btn);
+
   void Execute() override;
+  bool IsFinished() override;
 
  private:
-  DriveSubsystem* m_subsystem;
-  std::function<double()> m_x;
-  std::function<double()> m_zRot;
-  std::function<double()> m_speed;
-
-  bool m_sqInputs;
+  Motor6Subsystem* m_subsystem;
+  std::function<bool()> full_btn;
 };

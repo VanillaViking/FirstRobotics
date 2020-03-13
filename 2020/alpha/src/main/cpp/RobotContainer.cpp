@@ -10,11 +10,12 @@
 #include <frc2/command/button/JoystickButton.h>
 #include "commands/DriveCommand.h"
 #include "commands/ElevatorSetSpeed.h"
+#include "commands/IntakeCommand.h"
 
 
 RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
   // Initialize all of your commands and subsystems here
-    m_drive.SetDefaultCommand(DriveCommand(&m_drive, [this] {return logiStick.GetY();}, [this] {return logiStick.GetZ();}, true ));
+    m_drive.SetDefaultCommand(DriveCommand(&m_drive, [this] {return logiStick.GetY();}, [this] {return logiStick.GetZ();}, [this] {return logiStick.GetRawAxis(3);}, true ));
 
   // Configure the button bindings
   ConfigureButtonBindings();
@@ -22,8 +23,11 @@ RobotContainer::RobotContainer() : m_autonomousCommand(&m_subsystem) {
 
 void RobotContainer::ConfigureButtonBindings() {
   // Configure your button bindings here
+ 
+    frc2::JoystickButton(&logiStick, 1).WhileHeld(new IntakeCommand(&m_intakesystem, [this] {return logiStick.GetRawButtonPressed(2);}));
   
-    frc2::JoystickButton(&logiStick , 11).WhileHeld(new ElevatorSetSpeed(&m_elevatorsystem, [this] {return logiStick.GetRawAxis(3);}));
+    frc2::JoystickButton(&logiStick , 11).WhileHeld(new ElevatorSetSpeed(&m_elevatorsystem, 0.5));
+
 
 }
 

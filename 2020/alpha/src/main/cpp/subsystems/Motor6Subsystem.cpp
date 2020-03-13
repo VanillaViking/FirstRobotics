@@ -5,15 +5,23 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/ElevatorSetSpeed.h"
+#include "subsystems/Motor6Subsystem.h"
+#include "Constants.h"
 
-ElevatorSetSpeed::ElevatorSetSpeed(ElevatorSubsystem* subsystem, double speed)
-    : m_subsystem{subsystem}, m_speed(speed) {
-    AddRequirements({subsystem});
-    }
+using namespace ElevatorConstants;
 
+Motor6Subsystem::Motor6Subsystem() : m_motor6{MOTOR6_PORT}{
+  // Implementation of subsystem constructor goes here.
+}
 
-void ElevatorSetSpeed::Execute() {m_subsystem->SetSpeed(m_speed);}
+void Motor6Subsystem::SetSpeed(double speed) {
+    m_motor6.SetSpeed(speed);
+}
 
-bool ElevatorSetSpeed::IsFinished() {return false;}
+void Motor6Subsystem::StopMotor() {
+    m_motor6.StopMotor();
+}
 
+void Motor6Subsystem::Periodic() {
+  // Implementation of subsystem periodic method goes here.
+}

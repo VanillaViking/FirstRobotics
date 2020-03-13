@@ -5,15 +5,22 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "commands/ElevatorSetSpeed.h"
+#include "commands/IntakeCommand.h"
 
-ElevatorSetSpeed::ElevatorSetSpeed(ElevatorSubsystem* subsystem, double speed)
-    : m_subsystem{subsystem}, m_speed(speed) {
+IntakeCommand::IntakeCommand(Motor6Subsystem* subsystem, std::function<bool()> btn)
+    : m_subsystem{subsystem}, full_btn(btn) {
     AddRequirements({subsystem});
     }
 
 
-void ElevatorSetSpeed::Execute() {m_subsystem->SetSpeed(m_speed);}
+void IntakeCommand::Execute() {
 
-bool ElevatorSetSpeed::IsFinished() {return false;}
+    if (full_btn() == true) {
+        m_subsystem->SetSpeed(1.0);
+    } else {
+        m_subsystem->SetSpeed(0.5);
+    }
+}
+
+bool IntakeCommand::IsFinished() {return false;}
 
