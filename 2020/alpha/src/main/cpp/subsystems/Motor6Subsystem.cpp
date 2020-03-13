@@ -8,8 +8,6 @@
 #include "subsystems/Motor6Subsystem.h"
 #include "Constants.h"
 
-using namespace ElevatorConstants;
-
 Motor6Subsystem::Motor6Subsystem() : m_motor6{MOTOR6_PORT}{
   // Implementation of subsystem constructor goes here.
 }

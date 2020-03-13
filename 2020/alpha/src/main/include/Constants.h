@@ -19,17 +19,17 @@
 
 constexpr int LOGI_JOYSTICK_PORT = 0;
 
+//Drive Train Motors
 constexpr int L_TOP_MOTOR = 0;
 constexpr int L_REAR_MOTOR = 1;
-
 constexpr int R_TOP_MOTOR = 2;
 constexpr int R_REAR_MOTOR = 3;
 
+//Roller Motors
+constexpr int P_MOTOR1_PORT = 8;
+constexpr int P_MOTOR2_PORT = 9;
+constexpr double R_SPEED_INC = 0.2; //speed increment for roller motors
 
-namespace ElevatorConstants {
-    constexpr int P_MOTOR1_PORT = 8;
-    constexpr int P_MOTOR2_PORT = 9;
-    constexpr int MOTOR6_PORT = 6;
+//Intake Motor
+constexpr int MOTOR6_PORT = 6;
 
-
-}
