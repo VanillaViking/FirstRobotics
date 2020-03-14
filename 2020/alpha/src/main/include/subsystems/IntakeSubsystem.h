@@ -10,9 +10,9 @@
 #include <frc2/command/SubsystemBase.h>
 #include <frc/PWMVictorSPX.h>
 
-class Motor6Subsystem : public frc2::SubsystemBase {
+class IntakeSubsystem : public frc2::SubsystemBase {
  public:
-  Motor6Subsystem();
+  IntakeSubsystem();
 
   /**
    * Will be called periodically whenever the CommandScheduler runs.
@@ -25,7 +25,7 @@ class Motor6Subsystem : public frc2::SubsystemBase {
  
 
  private:
-    frc::PWMVictorSPX m_motor6;
+    frc::PWMVictorSPX m_intake_motor;
   // Components (e.g. motor controllers and sensors) should generally be
   // declared private and exposed only through public methods.
 };

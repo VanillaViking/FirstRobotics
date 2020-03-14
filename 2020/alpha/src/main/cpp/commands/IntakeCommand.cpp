@@ -7,7 +7,7 @@
 
 #include "commands/IntakeCommand.h"
 
-IntakeCommand::IntakeCommand(Motor6Subsystem* subsystem, std::function<bool()> btn)
+IntakeCommand::IntakeCommand(IntakeSubsystem* subsystem, std::function<bool()> btn)
     : m_subsystem{subsystem}, full_btn(btn) {
     AddRequirements({subsystem});
     }

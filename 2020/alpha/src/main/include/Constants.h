@@ -31,5 +31,5 @@ constexpr int P_MOTOR2_PORT = 9;
 constexpr double R_SPEED_INC = 0.2; //speed increment for roller motors
 
 //Intake Motor
-constexpr int MOTOR6_PORT = 6;
+constexpr int INTAKE_MOTOR_PORT = 6;
 

@@ -10,7 +10,7 @@
 #include <frc2/command/CommandBase.h>
 #include <frc2/command/CommandHelper.h>
 
-#include "subsystems/Motor6Subsystem.h"
+#include "subsystems/IntakeSubsystem.h"
 
 /**
  * An example command that uses an example subsystem.
@@ -27,12 +27,12 @@ class IntakeCommand
    *
    * @param subsystem The subsystem used by this command.
    */
-  explicit IntakeCommand(Motor6Subsystem* subsystem, std::function<bool()> full_btn);
+  explicit IntakeCommand(IntakeSubsystem* subsystem, std::function<bool()> full_btn);
 
   void Execute() override;
   bool IsFinished() override;
 
  private:
-  Motor6Subsystem* m_subsystem;
+  IntakeSubsystem* m_subsystem;
   std::function<bool()> full_btn;
 };

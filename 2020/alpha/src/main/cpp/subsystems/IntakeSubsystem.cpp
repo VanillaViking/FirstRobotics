@@ -5,21 +5,21 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-#include "subsystems/Motor6Subsystem.h"
+#include "subsystems/IntakeSubsystem.h"
 #include "Constants.h"
 
-Motor6Subsystem::Motor6Subsystem() : m_motor6{MOTOR6_PORT}{
+IntakeSubsystem::IntakeSubsystem() : m_intake_motor{INTAKE_MOTOR_PORT}{
   // Implementation of subsystem constructor goes here.
 }
 
-void Motor6Subsystem::SetSpeed(double speed) {
-    m_motor6.SetSpeed(speed);
+void IntakeSubsystem::SetSpeed(double speed) {
+    m_intake_motor.SetSpeed(speed);
 }
 
-void Motor6Subsystem::StopMotor() {
-    m_motor6.StopMotor();
+void IntakeSubsystem::StopMotor() {
+    m_intake_motor.StopMotor();
 }
 
-void Motor6Subsystem::Periodic() {
+void IntakeSubsystem::Periodic() {
   // Implementation of subsystem periodic method goes here.
 }

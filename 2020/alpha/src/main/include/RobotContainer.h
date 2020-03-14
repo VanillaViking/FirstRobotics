@@ -11,7 +11,7 @@
 #include <frc2/command/InstantCommand.h>
 
 #include "subsystems/DriveSubsystem.h"
-#include "subsystems/Motor6Subsystem.h"
+#include "subsystems/IntakeSubsystem.h"
 #include "subsystems/RollerSubsystem.h"
 #include "frc/Joystick.h"
 #include "Constants.h"
@@ -33,7 +33,7 @@ class RobotContainer {
   // The robot's subsystems and commands are defined here...
 
   DriveSubsystem m_drive;
-  Motor6Subsystem m_intakesystem;
+  IntakeSubsystem m_intakesystem;
   RollerSubsystem m_rollersystem;
 
   frc::Joystick logiStick{LOGI_JOYSTICK_PORT};
